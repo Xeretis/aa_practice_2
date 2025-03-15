@@ -9,17 +9,22 @@
     </head>
     <body>
         <h1 class="main-title">Todos</h1>
-        <form id="urlap">
-            <input
-                type="text"
-                class="input"
-                id="szovegmezo"
-                name="Keresés"
-                placeholder="Keresés..."
-                autocomplete="off"
-            />
-            <input type="checkbox" id="pipa" />
-            <button class="button--submit" id="submit">Keresés</button>
+        <form id="urlap" class="form">
+            <label class="checkbox-container">
+                <input checked="checked" type="checkbox" />
+                <div class="checkmark"></div>
+            </label>
+            <div>
+                <input
+                    type="text"
+                    class="input"
+                    id="szovegmezo"
+                    name="Keresés"
+                    placeholder="Keresés..."
+                    autocomplete="off"
+                />
+                <button class="button--submit" id="submit">Keresés</button>
+            </div>
         </form>
         <div class="container" id="container">
             <div></div>
