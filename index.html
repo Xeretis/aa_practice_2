@@ -5,13 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Alphacademy</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="./uiverse.css" />
     </head>
     <body>
         <h1 class="main-title">Todos</h1>
         <form id="urlap">
-            <input type="text" id="szovegmozo" />
+            <input
+                type="text"
+                class="input"
+                id="szovegmezo"
+                name="Keresés"
+                placeholder="Keresés..."
+                autocomplete="off"
+            />
             <input type="checkbox" id="pipa" />
-            <button type="submit">Kereses</button>
+            <button class="button--submit" id="submit">Keresés</button>
         </form>
         <div class="container" id="container">
             <div></div>
