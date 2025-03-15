@@ -16,28 +16,31 @@ fetch("https://aa-api.bluemin.de/todos", {
 
 const urlap = document.getElementById("urlap");
 
-let keresendoSzoveg = "";
+const query = new URLSearchParams();
 
 const szovegmezo = document.getElementById("szovegmozo");
+const pipa = document.getElementById("pipa");
 
 szovegmezo.addEventListener("input", (e) => {
-    keresendoSzoveg = e.currentTarget.value;
+    query.set("title", e.currentTarget.value);
+});
+
+pipa.addEventListener("input", (e) => {
+    if (e.currentTarget.checked == false) {
+        query.delete("isCompleted");
+    } else {
+        query.set("isCompleted", e.currentTarget.checked);
+    }
 });
 
 urlap.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    fetch(
-        "https://aa-api.bluemin.de/todos?title=" +
-            keresendoSzoveg +
-            "&valamimas=" +
-            keresendoSzoveg,
-        {
-            headers: {
-                "X-API-Key": "api-key-12345",
-            },
-        }
-    ).then((res) =>
+    fetch("https://aa-api.bluemin.de/todos?" + query.toString(), {
+        headers: {
+            "X-API-Key": "api-key-12345",
+        },
+    }).then((res) =>
         res.json().then((resData) => {
             data = resData;
             renderData();
