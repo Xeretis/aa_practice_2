@@ -27,11 +27,17 @@ szovegmezo.addEventListener("input", (e) => {
 urlap.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    fetch("https://aa-api.bluemin.de/todos?title=" + keresendoSzoveg, {
-        headers: {
-            "X-API-Key": "api-key-12345",
-        },
-    }).then((res) =>
+    fetch(
+        "https://aa-api.bluemin.de/todos?title=" +
+            keresendoSzoveg +
+            "&valamimas=" +
+            keresendoSzoveg,
+        {
+            headers: {
+                "X-API-Key": "api-key-12345",
+            },
+        }
+    ).then((res) =>
         res.json().then((resData) => {
             data = resData;
             renderData();
