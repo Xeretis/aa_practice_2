@@ -143,3 +143,28 @@ function renderData() {
         container.appendChild(card);
     }
 }
+
+const form = document.getElementById("create");
+
+const createTitle = document.getElementById("create-title");
+const createDescription = document.getElementById("create-description");
+const createIsCompleted = document.getElementById("create-isCompleted");
+const createDueDate = document.getElementById("create-dueDate");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    fetch("https://aa-api.bluemin.de/todos/", {
+        method: "POST",
+        headers: {
+            "X-API-Key": "api-key-12345",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            title: createTitle.value,
+            description: createDescription.value,
+            isCompleted: createIsCompleted.checked,
+            dueDate: createDueDate.valueAsDate,
+        }),
+    });
+});
